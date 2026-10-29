@@ -11,7 +11,10 @@
   --kreda: #f0f1f2;
   --kreda-200: #e3e5e6;
   --tinta: #272526;
-  --limeta: #e2fb50;
+  --limeta: #d8f04a;
+  /* rivet copper: the second, warm colour from the denim world (tags, leather details) */
+  --bakar: #b07a4a;
+  --bakar-ink: #1a1009;
   --limeta-ink: #10130a;
   --greska: #ff8a6b;
 
@@ -32,6 +35,10 @@
   --color-tinta: var(--tinta);
   --color-limeta: var(--limeta);
   --color-limeta-ink: var(--limeta-ink);
+  --color-bakar: var(--bakar);
+  --color-bakar-ink: var(--bakar-ink);
+  --color-indigo-950: #121a2c;
+  --color-indigo-800: #1e2a45;
   --color-greska: var(--greska);
   --font-sans: var(--font-archivo), "Arial", sans-serif;
   --ease-out: var(--ease-out);
@@ -135,7 +142,7 @@ body {
   color: var(--limeta-ink);
 }
 .btn-primary:hover {
-  background: #eeff7a;
+  background: #e4f86a;
 }
 .btn-ghost {
   border: 1.5px solid rgba(240, 241, 242, 0.5);

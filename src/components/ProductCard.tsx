@@ -8,8 +8,8 @@ import type { Product } from "@/lib/types";
 import { useShop } from "@/lib/store";
 import { HeartIcon } from "./icons";
 
-export function HangTag({ children, tone = "lime" }: { children: React.ReactNode; tone?: "lime" | "ink" | "chalk" }) {
-  const cls = tone === "lime" ? "bg-limeta text-limeta-ink" : tone === "ink" ? "bg-tinta text-kreda" : "bg-kreda text-tinta";
+export function HangTag({ children, tone = "lime" }: { children: React.ReactNode; tone?: "lime" | "copper" | "ink" | "chalk" }) {
+  const cls = tone === "lime" ? "bg-limeta text-limeta-ink" : tone === "copper" ? "bg-bakar text-bakar-ink" : tone === "ink" ? "bg-tinta text-kreda" : "bg-kreda text-tinta";
   return <span className={`hangtag inline-flex h-[26px] items-center pr-2.5 text-[12px] font-bold ${cls}`}>{children}</span>;
 }
 
@@ -63,8 +63,8 @@ export default function ProductCard({ p, priority = false }: { p: Product; prior
           />
         </Link>
         <div className="pointer-events-none absolute left-3 top-3 flex flex-col items-start gap-1.5">
-          {p.isNew && <HangTag>Novo</HangTag>}
-          {off > 0 && <HangTag tone="ink">−{off}%</HangTag>}
+          {p.isNew && <HangTag tone="copper">Novo</HangTag>}
+          {off > 0 && <HangTag>−{off}%</HangTag>}
         </div>
         <motion.button
           whileTap={{ scale: 0.85 }}

@@ -42,7 +42,7 @@ export default function DenimLab() {
   const current = FITS.find((f) => f.fit === fit)!;
 
   return (
-    <section id="denim-lab" aria-labelledby="denim-lab-naslov" className="relative mt-28 overflow-hidden border-y border-white/[0.07] bg-beton-900">
+    <section id="denim-lab" aria-labelledby="denim-lab-naslov" className="relative mt-28 overflow-hidden border-y border-white/[0.07] bg-indigo-950 bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.018)_0_2px,transparent_2px_6px)]">
       <div className="mx-auto grid max-w-[1440px] items-center gap-6 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:px-10 lg:py-20">
         <div className="order-2 lg:order-1">
           <h2 id="denim-lab-naslov" className="display text-[44px] sm:text-[60px]" style={{ ["--wdth" as string]: 116 }}>
@@ -82,7 +82,7 @@ export default function DenimLab() {
                   aria-label={`Pranje ${w.label}`}
                   className={`grid size-12 place-items-center rounded-full border-2 transition-colors ${wash === w.wash ? "border-limeta" : "border-transparent hover:border-white/40"}`}
                 >
-                  <span className="size-9 rounded-full border border-white/15" style={{ background: WASH_COLORS[w.wash] }} />
+                  <span className="size-9 rounded-full border border-white/30" style={{ background: WASH_COLORS[w.wash] }} />
                 </button>
               ))}
             </div>
@@ -98,7 +98,7 @@ export default function DenimLab() {
         </div>
 
         <div ref={ref} className="relative order-1 h-[520px] sm:h-[620px] lg:order-2 lg:h-[700px]">
-          <div className="absolute inset-[8%] rounded-full bg-[radial-gradient(circle,#3a3d3c_0%,transparent_65%)]" aria-hidden />
+          <div className="absolute inset-[8%] rounded-full bg-[radial-gradient(circle,#2b3b62_0%,transparent_65%)]" aria-hidden />
           {show3d && <DenimLabCanvas fit={fit} wash={wash} />}
           <p className="pointer-events-none absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 text-[13px] text-beton-300">
             <RotateIcon size={16} /> Povuci da okreneš

@@ -87,7 +87,7 @@ function Rig({ flight, onDone }: { flight: Flight; onDone: () => void }) {
     const side = new THREE.MeshStandardMaterial({ map: cardboardTexture(), roughness: 0.9 });
     const front = new THREE.MeshStandardMaterial({ map: frontTexture(), roughness: 0.9 });
     const inside = new THREE.MeshStandardMaterial({ color: "#8e714d", roughness: 1, side: THREE.DoubleSide });
-    const tape = new THREE.MeshStandardMaterial({ color: "#e2fb50", roughness: 0.6 });
+    const tape = new THREE.MeshStandardMaterial({ color: "#d8f04a", roughness: 0.6 });
     return { side, front, inside, tape };
   }, []);
 

@@ -67,8 +67,9 @@ Tri ideje iz stvarnog svijeta farmerki nose cijeli dizajn:
 | `beton-300` | `#9A9794` | Sekundarni tekst na tamnom |
 | `kreda` | `#F0F1F2` | Kartice proizvoda, svijetle sekcije (checkout) |
 | `tinta` | `#272526` | Tekst na svijetlom |
-| `limeta` | `#E2FB50` | Signal: glavna akcija, šav, fokus, "novo", popust |
-| `indigo` *(samo iz fotografije)* | ~`#2E3E5C` | Ne koristi se u UI-ju — dolazi isključivo iz denima na fotografijama i 3D modelima |
+| `limeta` | `#D8F04A` | Signal: glavna akcija, šav, fokus, popust (malo mirnija od `#E2FB50` sa slike) |
+| `bakar` | `#B07A4A` | Druga, topla boja iz svijeta denima (zakovice, koža): oznaka "Novo", linija na cijenama |
+| `indigo-950` | `#121A2C` | Pozadina Denim laba, boja neopranog denima |
 
 Pravila:
 - Limeta pokriva **najviše ~5% ekrana**. Ako je svuda, ništa nije važno.

@@ -626,7 +626,7 @@ function paintTee(P: Painter) {
     rib(P, quadPts([-0.088, 0.004], [0, -0.016], [0.088, 0.004], 24).concat(quadPts([0.074, 0.004], [0, -0.0], [-0.074, 0.004], 24)), shade(P.base, -0.02), 0.0035);
     // woven label
     fillShape(P, [[-0.014, -0.006], [0.014, -0.006], [0.014, -0.026], [-0.014, -0.026]], "#151515", 0.001);
-    text(P, "BOX", 0, -0.016, 0.008, "#e6f45a", { stretch: "expanded" });
+    text(P, "BOX", 0, -0.016, 0.008, "#d8f04a", { stretch: "expanded" });
   }
   // shoulder seams
   const sh = o ? 0.27 : 0.225;
@@ -811,7 +811,7 @@ function paintLongSleeve(P: Painter) {
       seam(P, [[-0.1, -0.2], [-0.12, b.minY + 0.06]], 0.006, true);
       seam(P, [[0.1, -0.2], [0.12, b.minY + 0.06]], 0.006, true);
       fillShape(P, [[-0.035, 0.02], [0.035, 0.02], [0.035, -0.008], [-0.035, -0.008]], "#141414", 0.002);
-      text(P, "BOX", 0, 0.006, 0.014, "#e6f45a", { stretch: "expanded" });
+      text(P, "BOX", 0, 0.006, 0.014, "#d8f04a", { stretch: "expanded" });
     }
     // sleeve cuffs
     for (const s of [-1, 1]) {
@@ -881,7 +881,7 @@ function paintVest(P: Painter) {
   if (side === "front") {
     zipper(P, [[0, 0.05], [0, b.minY + 0.005]], 0.022);
     for (const s of [-1, 1]) seam(P, [[s * 0.15, -0.42], [s * 0.19, -0.55]], 0.006, false);
-    fillShape(P, [[-0.17, -0.16], [-0.12, -0.16], [-0.12, -0.18], [-0.17, -0.18]], "#e2fb50", 0.002);
+    fillShape(P, [[-0.17, -0.16], [-0.12, -0.16], [-0.12, -0.18], [-0.17, -0.18]], "#d8f04a", 0.002);
     text(P, "BOX", -0.145, -0.17, 0.011, "#111", { stretch: "expanded" });
   }
   // armhole binding

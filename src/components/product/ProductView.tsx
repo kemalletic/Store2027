@@ -136,8 +136,8 @@ export default function ProductView({ slug }: { slug: string }) {
             </Link>
           </nav>
           <div className="mb-3 flex gap-2">
-            {p.isNew && <HangTag>Novo</HangTag>}
-            {off > 0 && <HangTag tone="chalk">−{off}%</HangTag>}
+            {p.isNew && <HangTag tone="copper">Novo</HangTag>}
+            {off > 0 && <HangTag>−{off}%</HangTag>}
           </div>
           <h1 className="display text-[42px] sm:text-[56px]" style={{ ["--wdth" as string]: 112 }}>
             {p.name}

@@ -54,7 +54,7 @@ function hangerFor(p: Product) {
 function priceTagTexture(p: Product) {
   const c = makeCanvas(200, 300);
   const ctx = c.getContext("2d")!;
-  ctx.fillStyle = p.oldPrice ? "#e2fb50" : "#efe9dd";
+  ctx.fillStyle = p.oldPrice ? "#d8f04a" : "#efe9dd";
   ctx.fillRect(0, 0, 200, 300);
   ctx.fillStyle = "#1a1a1a";
   ctx.beginPath();
@@ -64,7 +64,9 @@ function priceTagTexture(p: Product) {
   ctx.textAlign = "center";
   ctx.font = `expanded 900 30px ${fam}`;
   ctx.fillText("BOX", 100, 102);
-  ctx.fillRect(30, 124, 140, 3);
+  ctx.fillStyle = "#b07a4a";
+  ctx.fillRect(30, 124, 140, 4);
+  ctx.fillStyle = "#1a1a1a";
   ctx.font = `800 46px ${fam}`;
   ctx.fillText(p.price.toFixed(2).replace(".", ","), 100, 198);
   ctx.font = `600 26px ${fam}`;
@@ -146,7 +148,7 @@ const RackItem = memo(function RackItem({
 
 function Room({ lowPower }: { lowPower: boolean }) {
   const wall = useMemo(() => {
-    const t = concreteTextures({ size: lowPower ? 512 : 1024, tone: 104, boards: 3, ties: [3, 2], seed: 9 });
+    const t = concreteTextures({ size: lowPower ? 512 : 1024, tone: 92, boards: 3, ties: [3, 2], seed: 9 });
     t.map.repeat.set(3.2, 1.6);
     t.normalMap.repeat.set(3.2, 1.6);
     return t;
@@ -160,7 +162,7 @@ function Room({ lowPower }: { lowPower: boolean }) {
   // a dashed lime line where the wall meets the floor: the brand's stitch
   const dashes = useMemo(() => {
     const geo = new THREE.BoxGeometry(0.07, 0.008, 0.008);
-    const mat = new THREE.MeshBasicMaterial({ color: "#e2fb50", toneMapped: false });
+    const mat = new THREE.MeshBasicMaterial({ color: "#d8f04a", toneMapped: false });
     const mesh = new THREE.InstancedMesh(geo, mat, 80);
     const m = new THREE.Matrix4();
     for (let i = 0; i < 80; i++) {
@@ -422,15 +424,21 @@ function Scene({
       <fog attach="fog" args={["#0d0f0e", 3.2, 7]} />
       <ambientLight intensity={0.05} />
       <group ref={key}>
-        <directionalLight position={[-3, 2.5, 3]} intensity={0.35} />
-        <directionalLight position={[3, 1, 2]} intensity={0.12} color="#dfe6ff" />
+        <directionalLight position={[-3, 2.5, 3]} intensity={0.5} />
+        <directionalLight position={[3, 1, 2]} intensity={0.18} color="#dfe6ff" />
+        <hemisphereLight args={["#e9edf2", "#1a1c1c", 0.45]} />
+        {/* rim lights from behind: they catch the garments' edges, not the wall,
+            so black clothes separate from the dark concrete */}
+        <directionalLight position={[0, 3, -0.4]} intensity={1.1} />
+        <directionalLight position={[-3, 0.8, -0.4]} intensity={0.9} color="#f2efe8" />
+        <directionalLight position={[3, 0.8, -0.4]} intensity={0.9} color="#e8eef6" />
       </group>
       <spotLight
         ref={spot}
         position={[0.4, 2.8, 2.6]}
         angle={0.5}
         penumbra={1}
-        intensity={30}
+        intensity={36}
         decay={1.6}
         castShadow={!lowPower}
         shadow-mapSize={[1024, 1024]}
