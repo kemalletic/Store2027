@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ tokens
+   Beton i šav: concrete surfaces, chalk cards, one lime signal colour. */
+:root {
+  --asfalt: #0d0f0e;
+  --beton-900: #1c1f1f;
+  --beton-800: #252828;
+  --beton-600: #3a3839;
+  --beton-300: #9a9794;
+  --kreda: #f0f1f2;
+  --kreda-200: #e3e5e6;
+  --tinta: #272526;
+  --limeta: #e2fb50;
+  --limeta-ink: #10130a;
+  --greska: #ff8a6b;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cloth: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --header-h: 68px;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-asfalt: var(--asfalt);
+  --color-beton-900: var(--beton-900);
+  --color-beton-800: var(--beton-800);
+  --color-beton-600: var(--beton-600);
+  --color-beton-300: var(--beton-300);
+  --color-kreda: var(--kreda);
+  --color-kreda-200: var(--kreda-200);
+  --color-tinta: var(--tinta);
+  --color-limeta: var(--limeta);
+  --color-limeta-ink: var(--limeta-ink);
+  --color-greska: var(--greska);
+  --font-sans: var(--font-archivo), "Arial", sans-serif;
+  --ease-out: var(--ease-out);
+}
+
+html {
+  background: var(--asfalt);
+  color: var(--kreda);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--asfalt);
+  color: var(--kreda);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  font-variation-settings: "wdth" 100;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* concrete grain over every dark surface; one tiny SVG, no image request */
+.beton {
+  background-color: var(--asfalt);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--limeta);
+  color: var(--limeta-ink);
+}
+
+/* ------------------------------------------------------------------ type */
+.display {
+  font-weight: 860;
+  font-variation-settings: "wdth" var(--wdth, 125);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------ šav (stitch)
+   Dashed lines that look like topstitching. Used for dividers, focus and progress. */
+.stitch-x {
+  height: 2px;
+  background-image: repeating-linear-gradient(90deg, var(--stitch, var(--limeta)) 0 7px, transparent 7px 12px);
+}
+
+.stitch-y {
+  width: 2px;
+  background-image: repeating-linear-gradient(180deg, var(--stitch, var(--limeta)) 0 7px, transparent 7px 12px);
+}
+
+/* focus ring = a stitched outline */
+:focus-visible {
+  outline: 2px dashed var(--limeta);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.on-light :focus-visible {
+  outline-color: var(--tinta);
+}
+
+/* ------------------------------------------------------------------ hang tag
+   Notched card with a punched hole: our badge and price tag shape. */
+.hangtag {
+  --notch: 9px;
+  clip-path: polygon(var(--notch) 0, 100% 0, 100% 100%, var(--notch) 100%, 0 calc(100% - var(--notch)), 0 var(--notch));
+  -webkit-mask: radial-gradient(circle 3.5px at 11px 50%, transparent 98%, #000 100%);
+  mask: radial-gradient(circle 3.5px at 11px 50%, transparent 98%, #000 100%);
+  padding-left: 20px;
+}
+
+/* ------------------------------------------------------------------ buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-weight: 650;
+  font-size: 15px;
+  transition:
+    transform 0.25s var(--ease-out),
+    background-color 0.2s,
+    color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  background: var(--limeta);
+  color: var(--limeta-ink);
+}
+.btn-primary:hover {
+  background: #eeff7a;
+}
+.btn-ghost {
+  border: 1.5px solid rgba(240, 241, 242, 0.5);
+  color: var(--kreda);
+}
+.btn-ghost:hover {
+  border-color: var(--kreda);
+  background: rgba(240, 241, 242, 0.06);
+}
+.btn-ink {
+  background: var(--tinta);
+  color: var(--kreda);
+}
+.btn-ink:hover {
+  background: #000;
+}
+.btn[disabled] {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ view transitions */
+::view-transition-group(.morph) {
+  animation-duration: 480ms;
+  animation-timing-function: var(--ease-out);
+}
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+@keyframes via-blur {
+  30% {
+    filter: blur(2px);
+  }
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 260ms;
+}
+
+/* ------------------------------------------------------------------ misc */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
