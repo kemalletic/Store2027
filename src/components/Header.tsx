@@ -122,7 +122,7 @@ export default function Header() {
               className="hidden h-11 w-[220px] items-center gap-3 xl:w-[260px] rounded-full border border-white/10 bg-white/[0.04] px-4 text-left text-[14px] text-beton-300 transition-colors hover:border-white/25 md:flex"
             >
               <SearchIcon size={18} />
-              <span className="flex-1">Pretraži proizvode</span>
+              <span className="flex-1 truncate whitespace-nowrap">Pretraži proizvode</span>
               <kbd className="rounded-md border border-white/10 px-1.5 text-[11px] text-beton-300">Ctrl K</kbd>
             </button>
             <button onClick={() => setSearchOpen(true)} className="grid size-11 place-items-center rounded-full md:hidden" aria-label="Pretraga">

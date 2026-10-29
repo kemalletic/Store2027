@@ -119,7 +119,7 @@ export default function ProductView({ slug }: { slug: string }) {
     <div className="pt-[calc(var(--header-h)+24px)]">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-10">
         {/* keep the 3:4 media inside the viewport on wide screens */}
-        <div ref={media} className="w-full lg:max-w-[calc((100svh-var(--header-h)-150px)*0.75)] lg:justify-self-end">
+        <div ref={media} className="w-full lg:max-w-[calc((100svh-var(--header-h)-56px)*0.75)] lg:justify-self-end">
           <ProductMedia p={p} />
         </div>
 
