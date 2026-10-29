@@ -89,7 +89,7 @@ export default function Header() {
             <Logo />
           </Link>
 
-          <nav aria-label="Glavna navigacija" className="ml-8 hidden items-center gap-1 lg:flex">
+          <nav aria-label="Glavna navigacija" className="ml-4 hidden items-center gap-0.5 lg:flex xl:ml-8 xl:gap-1">
             <button
               className={`flex h-11 items-center gap-1 rounded-full px-4 text-[14.5px] font-medium transition-colors hover:text-white ${shopOpen ? "text-white" : "text-kreda/80"}`}
               aria-expanded={shopOpen}
@@ -105,7 +105,7 @@ export default function Header() {
                 <Link
                   key={n.href}
                   href={n.href}
-                  className={`relative flex h-11 items-center rounded-full px-4 text-[14.5px] font-medium transition-colors hover:text-white ${active ? "text-white" : "text-kreda/80"}`}
+                  className={`relative flex h-11 items-center whitespace-nowrap rounded-full px-4 text-[14.5px] font-medium transition-colors hover:text-white ${active ? "text-white" : "text-kreda/80"}`}
                   aria-current={active ? "page" : undefined}
                   onMouseEnter={() => setShopOpen(false)}
                 >
@@ -119,7 +119,7 @@ export default function Header() {
           <div className="ml-auto flex items-center gap-1">
             <button
               onClick={() => setSearchOpen(true)}
-              className="hidden h-11 w-[260px] items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 text-left text-[14px] text-beton-300 transition-colors hover:border-white/25 md:flex"
+              className="hidden h-11 w-[220px] items-center gap-3 xl:w-[260px] rounded-full border border-white/10 bg-white/[0.04] px-4 text-left text-[14px] text-beton-300 transition-colors hover:border-white/25 md:flex"
             >
               <SearchIcon size={18} />
               <span className="flex-1">Pretraži proizvode</span>
